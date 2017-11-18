@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>IGS Mad Libs!</title>
+
+    <style type="text/css">
+    .container {
+      width: 400px;
+      clear: both;
+    }
+    .container input {
+      width: 100%;
+      clear: both;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>IGS Mad Libs!</h1>
+
+    <div class="container">
+      <form action="" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="story" value="{{ story }}">
+          {% for i in range(0, form_list|length) %}
+          <label id="{{ form_list[i] }}_label" for="{{ form_list[i] }}">{{ form_list[i] }}</label>
+          <input type="text" name="{{ form_list[i] }}" value="">
+          <br><br>
+          {% endfor %}
+          <p><input type="submit" value="Go"></p>
+      </form>
+    </div>
+  </body>
+</html>

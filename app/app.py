@@ -10,12 +10,23 @@ app = Flask(__name__)
 @app.route('/index', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        return "You posted!"
+        story = request.form['story']
+        # Found the form turned my \n into \r\n
+        story = story.replace("\r", "")
+        # If story is in mad_libs dict correctly, the story list should be 1 element longer than the fill_ins list
+        story_list = break_story_into_list(story)
+        fill_ins = ml.mad_libs[story]
+        final_story = ''
+        for i in range(0, len(fill_ins)):
+            final_story += story_list[i]
+            final_story += request.form[fill_ins[i]]
+        # Get the final element of story_list
+        final_story += story_list[-1]
+        return final_story
     else:
         (story, fill_ins) = choose_random_mad_lib()
-        story_list = break_story_into_list(story)
-        # If story is in mad_libs dict correctly, the story list should be 1 element longer than the fill_ins list
-        return render_template('mad_libs_form.html', form_list=fill_ins)
+
+        return render_template('mad_libs_form.html', form_list=fill_ins, story=story)
 
 ### Non-routing functions
 
