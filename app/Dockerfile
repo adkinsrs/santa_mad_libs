@@ -12,7 +12,7 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/v3.5/main" >> /etc/apk/repositories
 RUN apk update \
     && apk add python py-pip supervisor \
     && pip install --upgrade pip \
-    && pip install Flask Flask-WTF \
+    && pip install Flask \
     && rm -rf /var/cache/apk/*
 
 COPY . ${APP_DIR}
