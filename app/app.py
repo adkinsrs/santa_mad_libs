@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+#-*- coding: utf-8 -*-
 from flask import Flask, render_template, request
 import random
 
@@ -18,10 +19,12 @@ def index():
         final_story = ''
         for i in range(0, len(fill_ins)):
             final_story += story_list[i]
-            final_story += request.form[fill_ins[i]]
+            final_story += request.form[fill_ins[i]].upper()
         # Get the final element of story_list
         final_story += story_list[-1]
-        return final_story
+        # Unicode is being encoded to ASCII and I'm getting errors if I don't ignore the chars that can't be encoded in ASCII
+        final_story = final_story.encode('ascii', 'ignore')
+        return '<p style="font-size:150%;">{}</p>'.format(final_story)
     else:
         (story, fill_ins) = choose_random_mad_lib()
         return render_template('mad_libs_form.html', form_list=fill_ins, story=story)

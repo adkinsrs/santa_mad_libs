@@ -2,7 +2,7 @@
 
 # Will house the list of Mad Libs that will be picked from random
 
-# NOTE: Occasionally an odd ASCII character (0xe2) pops up in the story.  I found decoding the key in utf-8 resolves this
+# NOTE: Occasionally an odd byte character (0xe2) pops up in the story.  I found decoding the key in utf-8 resolves this
 
 FILL_IN_PTRN = '___'
 
