@@ -4,13 +4,28 @@
 
     <style type="text/css">
     .container {
-      width: 400px;
-      clear: both;
+      width: 600px;
     }
     .container input {
-      width: 100%;
-      clear: both;
+      width: 50%;
+      float: right;
     }
+    .button {
+    background-color: #F44336; /* Red */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    }
+    .button:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+  }
     </style>
   </head>
   <body>
@@ -24,7 +39,7 @@
           <input type="text" name="{{ form_list[i] }}" value="">
           <br><br>
           {% endfor %}
-          <p><input type="submit" value="Go"></p>
+          <p><input type="submit" class="button" value="Go"></p>
       </form>
     </div>
   </body>
