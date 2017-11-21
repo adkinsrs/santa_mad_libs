@@ -35,7 +35,7 @@ def break_story_into_list(story):
     return story.split(ml.FILL_IN_PTRN)
 
 def choose_random_mad_lib():
-    return random.choice( ml.mad_libs.keys() )
+    return random.choice( list(ml.mad_libs.iteritems()) )
 
 
 if __name__ == "__main__":
