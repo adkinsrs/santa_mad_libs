@@ -16,7 +16,7 @@
 
         margin: auto;
       }
-      h1 {
+      a {
         clear: both;
       }
 
@@ -36,7 +36,7 @@
 
     @media print
     {
-      h1 {display: none;}
+      a {display: none;}
       .start_over {display: none;}
       form {display: none;}
       p {display: inline-block; font-size:150%;}
@@ -45,7 +45,7 @@
   </head>
   <body>
     <div>
-      <h1>Go to the printer to get your results.<h1>
+      <a href="javascript:window.print()"><h1>Print your Mad Lib to view it!</h1></a>
       <p name="story" style="display:none;">{{ story }}</p>
       <form action="" method="post" enctype="multipart/form-data">
         <input type="submit" class="start_over" name="start_over" value="Start Over">
