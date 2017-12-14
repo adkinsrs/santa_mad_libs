@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>IGS Mad Libs!</title>
+    <style type="text/css">
+    @media screen
+    {
+      div {
+        width: 600px;
+        height: 600px;
+
+        position: absolute;
+        top:0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        margin: auto;
+      }
+      h1 {
+        clear: both;
+      }
+
+      .start_over {
+        background-color: white;
+        border-color: #4CAF50; /* Green */
+        color: #F44336; /* Red */
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 24px;
+        margin: 4px 10px;
+        cursor: pointer;
+      }
+    }
+
+    @media print
+    {
+      h1 {display: none;}
+      .start_over {display: none;}
+      form {display: none;}
+      p {display: inline-block; font-size:150%;}
+    }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Go to the printer to get your results.<h1>
+      <p name="story" style="display:none;">{{ story }}</p>
+      <form action="" method="post" enctype="multipart/form-data">
+        <input type="submit" class="start_over" name="start_over" value="Start Over">
+      </form>
+    </div>
+  </body>
+</html>

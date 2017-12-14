@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <title>IGS Mad Libs!</title>
+
+    <style type="text/css">
+    div {
+    	width: 600px;
+    	height: 600px;
+
+    	position: absolute;
+    	top:0;
+    	bottom: 0;
+    	left: 0;
+    	right: 0;
+
+    	margin: auto;
+    }
+    h1 {
+      clear: both;
+    }
+
+    .nice {
+      background-color: white;
+      border-color: #F44336;
+      color: #F44336; /* Red */
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 24px;
+      margin: 4px 10px;
+      cursor: pointer;
+    }
+    .nice:hover {
+      border-color: #4CAF50;
+      color: #4CAF50; /* Green */
+    }
+
+    .naughty {
+      background-color: black;
+      border-color: #F44336;
+      color: #F44336; /* Red */
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 24px;
+      margin: 4px 10px;
+      cursor: pointer;
+    }
+    .naughty:hover {
+      border-color: #4CAF50;
+      color: #4CAF50; /* Green */
+    }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Welcome to IGS Mad Libs!.<h1>
+      <h1>Have you been naughty or nice this year?</h1>
+      <form action="" method="post" enctype="multipart/form-data">
+        <input type="submit" class="nice" name="nice" value="Nice">
+        <input type="submit" class="naughty" name="naughty" value="Naughty">
+      </form>
+    </div>
+  </body>
+</html>
