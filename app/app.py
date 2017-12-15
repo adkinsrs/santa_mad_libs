@@ -1,11 +1,13 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for, redirect
 import random
 
 import mad_libs as ml
 
 app = Flask(__name__)
+
+final_story = ''
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
@@ -16,19 +18,26 @@ def index():
             status = 'nice'
         else:
             status = 'naughty'
-        return render_template(url_for('mad_libs_form'), status=status)
+        return redirect(url_for('mad_libs_form', status=status))
 
     else:
+        global final_story
+        final_story = ''
         return render_template("home.html")
 
-@app.route('/mad_libs_form', methods=['GET', 'POST'])
+@app.route('/mad_libs_form/<status>', methods=['GET', 'POST'])
 def mad_libs_form(status):
     if request.method == 'POST':
         story = request.form['story']
 
         # If story is in mad_libs dict correctly, the story list should be 1 element longer than the fill_ins list
         story_list = break_story_into_list(story)
-        fill_ins = ml.mad_libs[story]
+        if status == 'nice':
+            fill_ins = ml.nice_mad_libs[story]
+        else:
+            fill_ins = ml.naughty_mad_libs[story]
+
+        global final_story
         final_story = ''
         for i in range(0, len(fill_ins)):
             final_story += story_list[i]
@@ -37,22 +46,23 @@ def mad_libs_form(status):
         final_story += story_list[-1]
         # Unicode is being encoded to ASCII and I'm getting errors if I don't ignore the chars that can't be encoded in ASCII
         final_story = final_story.encode('ascii', 'ignore')
-        return render_template(url_for('final'), story=final_story)
+        return redirect(url_for('final'))
     else:
         if status == 'nice':
             (story, fill_ins) = choose_random_mad_lib(ml.nice_mad_libs)
-            return render_template('nice_mad_libs.html', form_list=fill_ins, story=story)
         else:
             (story, fill_ins) = choose_random_mad_lib(ml.naughty_mad_libs)
-            return render_template('naughty_mad_libs.html', form_list=fill_ins, story=story)
+        return render_template('mad_libs_form.html', status=status, form_list=fill_ins, story=story)
 
 @app.route('/final', methods=['GET', 'POST'])
-def final(story):
+def final():
     if request.method == 'POST':
         if "start_over" in request.form:
             return render_template(url_for('index'))
     else:
-        return render_template("final.html", story=story)
+        global final_story
+        app.logger.debug("final story is {}".format(final_story))
+        return render_template("final.html", story=final_story)
 
 
 ### Non-routing functions

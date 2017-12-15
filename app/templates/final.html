@@ -19,10 +19,14 @@
       a {
         clear: both;
       }
+      p {
+        display: none;
+      }
 
       .start_over {
         background-color: white;
         border-color: #4CAF50; /* Green */
+        border-style: solid;
         color: #F44336; /* Red */
         padding: 15px 32px;
         text-align: center;
@@ -39,14 +43,14 @@
       a {display: none;}
       .start_over {display: none;}
       form {display: none;}
-      p {display: inline-block; font-size:150%;}
+      p {display: inline-block; font-size:150%; color:black;}
     }
     </style>
   </head>
   <body>
     <div>
       <a href="javascript:window.print()"><h1>Print your Mad Lib to view it!</h1></a>
-      <p name="story" style="display:none;">{{ story }}</p>
+      <p name="story">{{ story|safe }}</p>
       <form action="" method="post" enctype="multipart/form-data">
         <input type="submit" class="start_over" name="start_over" value="Start Over">
       </form>
