@@ -58,7 +58,7 @@ def mad_libs_form(status):
 def final():
     if request.method == 'POST':
         if "start_over" in request.form:
-            return render_template(url_for('index'))
+            return redirect(url_for('index'))
     else:
         global final_story
         app.logger.debug("final story is {}".format(final_story))
