@@ -17,5 +17,10 @@ nice_mad_libs = {
 
 naughty_mad_libs = {
     "Dear ___ Santa,<br><br>Another ___ holiday season is here, and I'm going to get right to the point. I want ___! I also want a ___, a ___ and a ___! I've been really ___ this year, but I deserve these things for the ___ that I've had to put up with at work from my fellow ___s! Sure, I may have broken a few ___, and never ___ my work. And then of course there was the time I ___ that ___ to the boss. But can you forget all of that if I slip ___ bucks alongside the ___ under the tree on Christmas Eve? Don't consider it a bribe, consider it a ___.<br><br>Thanks,<br>___".decode('utf-8') :
-    ["ADJECTIVE", "ANOTHER ADJECTIVE", "PLURAL NOUN", "NOUN", "ANOTHER NOUN", "YET ANOTHER NOUN", "ADJECTIVE, PLEASE", "ANOTHER PLURAL NOUN", "JOB TITLE", "YET ANOTHER PLURAL NOUN", "PAST TENSE VERB", "ANOTHER PAST TENSE VERB", "ONE MORE NOUN", "NUMBER", "FOOD", "LAST NOUN", "YOUR NAME"]
+    ["ADJECTIVE", "ANOTHER ADJECTIVE", "PLURAL NOUN", "NOUN", "ANOTHER NOUN", "YET ANOTHER NOUN", "ADJECTIVE, PLEASE", "ANOTHER PLURAL NOUN", "JOB TITLE", "YET ANOTHER PLURAL NOUN", "PAST TENSE VERB", "ANOTHER PAST TENSE VERB", "ONE MORE NOUN", "NUMBER", "FOOD", "LAST NOUN", "YOUR NAME"] ,
+
+    "Dear Santa,<br><br>Well, it's that time again, the ___-est time of the year! Ive may not have been very nice this year, but I'm still hoping to find some ___ under my Christmas ___. A bunch of my friends are expecting coal or ___ this year, but I'm hoping that you'll take pity on me because I'm so ___ and bring me the one thing that I really want... a(n) ___ ___! I hope that you can fit one in your sleigh! Please don't forget to ___ when you get to my house. Enjoy the ___ and ___ for the reindeer!<br><br>Sincerely,<br>A very repentant ___, ___".decode('utf-8') :
+    ["ADJECTIVE", "PLURAL NOUN", "NOUN", "ANOTHER PLURAL NOUN", "ANOTHER ADJECTIVE", "YET ANOTHER ADJECTIVE", "ANOTHER NOUN", "VERB", "FOOD", "MORE FOOD", "JOB TITLE", "YOUR NAME"]
+
+
 }
